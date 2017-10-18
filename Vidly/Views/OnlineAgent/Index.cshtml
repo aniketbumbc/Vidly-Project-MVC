@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Vidly.Models.Agent>
+    @{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Online Agent</h2>
+
+                      <table class="table table-bordered table-hover">
+                          <thead>
+                              <tr>Online Store</tr>
+                          </thead>
+                          <tbody>
+                              @foreach(var agent in Model)
+                              {
+                              <tr>
+                                  <td>@agent.Name</td>
+                              </tr>
+                              }
+                          </tbody>
+                      </table>

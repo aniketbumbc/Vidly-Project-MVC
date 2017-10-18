@@ -3,12 +3,19 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
 
 namespace Vidly.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        [Required]
+        [StringLength(10)]
+        public string DirvingLicense { get; set; }
+        //[Required]
+        //[StringLength(10)]
+      //  public string Phone { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -18,16 +25,23 @@ namespace Vidly.Models
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
-        {
-        }
+    //public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    //{
 
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
-    }
+       // public DbSet<Customer> Customers { get; set; } // movie
+        //public DbSet<Movie> Movies { get; set; }
+        //public DbSet<MembershipType> MembershipTypes { get; set; }
+        //public DbSet<Genre> Genres { get; set; }
+        //public object Genres { get; internal set; }
+
+       // public ApplicationDbContext()
+        //    : base("DefaultConnection", throwIfV1Schema: false)
+        //{
+        //}
+
+        //public static ApplicationDbContext Create()
+        //{
+            //return new ApplicationDbContext();
+       // }
+    //}
 }
